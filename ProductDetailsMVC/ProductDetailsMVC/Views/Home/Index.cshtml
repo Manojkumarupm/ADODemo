@@ -1,0 +1,108 @@
+﻿@model ProductDetailsMVC.Models.ViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create Supplier New", "CreateSupplier")
+</p>
+
+<table class="table">
+
+    <tr>
+        <th>
+            SupplierId
+        </th>
+        <th>
+            SupplierName
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            ContactNumber
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Suppliers)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupplierName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditSupplier", new { id = item.SupplierId }) |
+            @Html.ActionLink("Details", "DetailsSupplier", new { id = item.SupplierId }) |
+            @Html.ActionLink("Delete", "DeleteSupplier", new { id = item.SupplierId })
+        </td>
+    </tr>
+    }
+
+</table>
+
+
+<h2>Product</h2>
+
+<p>
+    @Html.ActionLink("Create Product New", "CreateProduct")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ProductId
+        </th>
+        <th>
+            ProductName
+        </th>
+        <th>
+            SupplierId
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Products)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditProduct", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "DetailsProduct", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "DeleteProduct", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
+
+</table>
